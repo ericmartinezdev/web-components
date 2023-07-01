@@ -10,11 +10,16 @@ class WebComponent extends HTMLElement {
     // `;
 
     // 2. By creating elements and adding them to the DOM
-    const div = document.createElement('div');
-    const span = document.createElement('span');
-    span.innerHTML = "This is a web component";
-    div.appendChild(span);
-    this.appendChild(div);
+    // const div = document.createElement('div');
+    // const span = document.createElement('span');
+    // span.innerHTML = "This is a web component";
+    // div.appendChild(span);
+    // this.appendChild(div);
+
+    // 3. Parse a HTML string
+    const html = '<div><span>This is a web component</span></div>';
+    const innerHTML = new DOMParser().parseFromString(html, 'text/html').body.innerHTML;
+    this.innerHTML = innerHTML;
   }
 }
 
