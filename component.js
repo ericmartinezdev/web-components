@@ -3,7 +3,7 @@ class WebComponent extends HTMLElement {
   constructor() {
     super();
 
-    this.attachShadow({ mode: 'open'});
+    this.attachShadow({ mode: 'open' });
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -17,9 +17,8 @@ class WebComponent extends HTMLElement {
         ::slotted(span) {
           color: grey;
         }
-      </style>
     `;
-    // Replacing document with "this" will look up any template within the web component
+
     const template = this.querySelector('template').content.cloneNode(true);
     this.shadowRoot.appendChild(template);
   }
