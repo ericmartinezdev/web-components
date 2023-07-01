@@ -24,17 +24,7 @@ class WebComponent extends HTMLElement {
 
   attributeChangedCallback(attrName, oldValue, newValue) {
     if(attrName == 'text') {
-      this.shadowRoot.innerHTML = `
-        <style>
-          span {
-            color: green;
-          }
-        </style>
-        <div>
-          <span>${newValue}</span>
-          <slot></slot>
-        </div>
-      `;
+      this.shadowRoot.querySelector('span').innerHTML = newValue;
     }
   }
 
