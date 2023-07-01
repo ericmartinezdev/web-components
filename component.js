@@ -10,8 +10,20 @@ class WebComponent extends HTMLElement {
       <div>
         <span>${this.innerTextContent}</span>
       </div>
-    `
+    `;
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if(attrName == 'text') {
+      this.innerHTML = `
+        <div>
+          <span>${newValue}</span>
+        </div>
+      `;
+    }
+  }
 
+  static get observedAttributes() {
+    return ['text'];
   }
 }
 
