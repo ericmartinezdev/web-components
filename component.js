@@ -4,6 +4,7 @@ class CustomButton extends HTMLButtonElement {
 
     this.link = this.getAttribute('link');
     this.addEventListener('click', event => {
+      event.preventDefault();
       window.location.href = this.link;
     })
   }
