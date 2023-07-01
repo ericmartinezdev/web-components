@@ -11,4 +11,5 @@ class WebComponent extends HTMLElement {
   }
 }
 
+
 customElements.define('web-component', WebComponent);
