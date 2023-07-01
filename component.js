@@ -18,13 +18,10 @@ class WebComponent extends HTMLElement {
           color: grey;
         }
       </style>
-      <div>
-        <slot name="slot-1"></slot>
-      </div>
-      <div>
-        <slot name="slot-2"></slot>
-      </div>
     `;
+    // Replacing document with "this" will look up any template within the web component
+    const template = this.querySelector('template').content.cloneNode(true);
+    this.shadowRoot.appendChild(template);
   }
 
   disconnectedCallback() {
