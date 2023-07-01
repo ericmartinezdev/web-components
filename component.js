@@ -16,6 +16,7 @@ class WebComponent extends HTMLElement {
         }
         span {
           color: green;
+          background-color: var(--bg-color);
         }
         ::slotted(span) {
           color: grey;
