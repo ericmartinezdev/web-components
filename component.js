@@ -17,6 +17,9 @@ class WebComponent extends HTMLElement {
         span {
           color: green;
         }
+        ::slotted(span) {
+          color: grey;
+        }
       </style>
       <div>
         <span>${this.innerTextContent}</span>
