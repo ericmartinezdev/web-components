@@ -11,6 +11,9 @@ class WebComponent extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>
+        :host {
+          font-weight: bold;
+        }
         span {
           color: green;
         }
