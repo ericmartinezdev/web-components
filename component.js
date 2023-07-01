@@ -2,10 +2,6 @@ class WebComponent extends HTMLElement {
   
   constructor() {
     super();
-    
-    if(this.hasAttribute('text')) {
-      this.innerTextContent = this.getAttribute('text');
-    }
 
     this.attachShadow({ mode: 'open'});
 
@@ -23,26 +19,17 @@ class WebComponent extends HTMLElement {
         }
       </style>
       <div>
-        <span>${this.innerTextContent}</span>
-        <slot></slot>
+        <slot name="slot-1"></slot>
+      </div>
+      <div>
+        <slot name="slot-2"></slot>
       </div>
     `;
-  }
-
-  attributeChangedCallback(attrName, oldValue, newValue) {
-    if(attrName == 'text') {
-      this.shadowRoot.querySelector('span').innerHTML = newValue;
-    }
   }
 
   disconnectedCallback() {
     console.log('Disconnected Callback')
   }
-
-  static get observedAttributes() {
-    return ['text'];
-  }
-
 }
 
 
