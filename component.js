@@ -10,6 +10,11 @@ class WebComponent extends HTMLElement {
     this.attachShadow({ mode: 'open'});
 
     this.shadowRoot.innerHTML = `
+      <style>
+        span {
+          color: green;
+        }
+      </style>
       <div>
         <span>${this.innerTextContent}</span>
         <slot></slot>
@@ -20,6 +25,11 @@ class WebComponent extends HTMLElement {
   attributeChangedCallback(attrName, oldValue, newValue) {
     if(attrName == 'text') {
       this.shadowRoot.innerHTML = `
+        <style>
+          span {
+            color: green;
+          }
+        </style>
         <div>
           <span>${newValue}</span>
           <slot></slot>
