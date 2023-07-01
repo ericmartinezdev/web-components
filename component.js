@@ -2,7 +2,16 @@ class WebComponent extends HTMLElement {
   constructor() {
     super();
     
-    console.log(this.getAttribute('text'));
+    if(this.hasAttribute('text')) {
+      this.innerTextContent = this.getAttribute('text');
+    }
+
+    this.innerHTML = `
+      <div>
+        <span>${this.innerTextContent}</span>
+      </div>
+    `
+
   }
 }
 
