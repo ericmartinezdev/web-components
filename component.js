@@ -1,32 +1,12 @@
-class WebComponent extends HTMLElement {
-  
+class CustomButton extends HTMLButtonElement {
   constructor() {
     super();
 
-    this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.innerHTML = `
-      <style>
-        :host {
-          font-weight: bold;
-        }
-        span {
-          color: green;
-          background-color: var(--bg-color);
-        }
-        ::slotted(span) {
-          color: grey;
-        }
-    `;
-
-    const template = this.querySelector('template').content.cloneNode(true);
-    this.shadowRoot.appendChild(template);
-  }
-
-  disconnectedCallback() {
-    console.log('Disconnected Callback')
+    this.link = this.getAttribute('link');
+    this.addEventListener('click', event => {
+      window.location.href = this.link;
+    })
   }
 }
 
-
-customElements.define('web-component', WebComponent);
+customElements.define('custom-button', CustomButton, { extends: 'button' })
